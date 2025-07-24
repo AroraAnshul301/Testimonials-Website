@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit Feedback</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <h1>Submit Your Feedback</h1>
+  <% if (error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+  <form action="/submit" method="POST">
+    <input type="text" name="name" placeholder="Your name" required><br><br>
+    <textarea name="message" placeholder="Your message" required></textarea><br><br>
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+  <a href="/testimonials">View Testimonials</a>
+</body>
+</html>

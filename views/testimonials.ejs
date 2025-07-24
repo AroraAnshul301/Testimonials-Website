@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testimonials</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <h1>User Testimonials</h1>
+  <% if (feedbacks.length === 0) { %>
+    <p>No feedback yet.</p>
+  <% } else { %>
+    <% feedbacks.forEach(fb => { %>
+      <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <strong><%= fb.name %></strong>
+        <p><%= fb.message %></p>
+        <small><%= fb.createdAt.toLocaleString() %></small>
+      </div>
+    <% }) %>
+  <% } %>
+  <br>
+  <a href="/submit">Submit More Feedback</a>
+</body>
+</html>
