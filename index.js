@@ -1,20 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const Feedback = require('./models/Feedback');
 
 const app = express();
 
 // MongoDB connection
-mongoose.connect('mongodb://127.0.0.1:27017/feedbackDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB connected'))
+mongoose.connect('mongodb://127.0.0.1:27017/feedbackDB', {}).then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
 
 // EJS as template engine
 app.set('view engine', 'ejs');
